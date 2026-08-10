@@ -54,6 +54,7 @@ One subscription per association with unlimited vehicles:
 
 - 14-day free trial;
 - 199,000 UZS monthly;
+- 549,000 UZS quarterly — the plan most associations choose;
 - 1,999,000 UZS yearly.
 
 ## President Tech Award incubation KPIs
