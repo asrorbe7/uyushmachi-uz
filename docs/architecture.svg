@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 700" width="1040" height="700" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#33566b"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3f7d33"/>
+    </marker>
+  </defs>
+
+  <rect width="1040" height="700" fill="#ffffff"/>
+
+  <text x="40" y="46" font-size="24" font-weight="700" fill="#12222d">Uyushmachi.uz — arxitektura</text>
+  <text x="40" y="72" font-size="14" fill="#5b7180">Ko‘p tenantli SaaS. Model bazaga tegmaydi, raqamni model hisoblamaydi.</text>
+
+  <!-- FOYDALANUVCHILAR -->
+  <rect x="40" y="110" width="230" height="240" rx="14" fill="#f4f8fa" stroke="#c9d9e2"/>
+  <text x="60" y="138" font-size="11" font-weight="800" fill="#6a8494" letter-spacing="1">FOYDALANUVCHILAR</text>
+
+  <rect x="60" y="154" width="190" height="54" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="76" y="176" font-size="14" font-weight="700" fill="#12222d">Rahbar</text>
+  <text x="76" y="196" font-size="11.5" fill="#5b7180">Veb panel — brauzer</text>
+
+  <rect x="60" y="216" width="190" height="54" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="76" y="238" font-size="14" font-weight="700" fill="#12222d">Haydovchi</text>
+  <text x="76" y="258" font-size="11.5" fill="#5b7180">Reys AI — Android</text>
+
+  <rect x="60" y="278" width="190" height="54" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="76" y="300" font-size="14" font-weight="700" fill="#12222d">Telegram bot</text>
+  <text x="76" y="320" font-size="11.5" fill="#5b7180">Parolsiz kirish</text>
+
+  <!-- SERVER -->
+  <rect x="330" y="110" width="330" height="420" rx="14" fill="#f4f8fa" stroke="#c9d9e2"/>
+  <text x="350" y="138" font-size="11" font-weight="800" fill="#6a8494" letter-spacing="1">SERVER — TanStack Start / Vercel</text>
+
+  <rect x="350" y="154" width="290" height="66" rx="10" fill="#ffffff" stroke="#7fa6bd" stroke-width="2"/>
+  <text x="366" y="177" font-size="13.5" font-weight="700" fill="#12222d">Tenant chegarasi</text>
+  <text x="366" y="196" font-size="11.5" fill="#5b7180">Har tenant so‘rovi association_id bilan</text>
+  <text x="366" y="212" font-size="11.5" fill="#5b7180">filtrlanadi — AST tekshiruvi CI’da</text>
+
+  <rect x="350" y="234" width="290" height="66" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="366" y="257" font-size="13.5" font-weight="700" fill="#12222d">Sof funksiyalar</text>
+  <text x="366" y="276" font-size="11.5" fill="#5b7180">Xavf bali, muddat, qarz, reys</text>
+  <text x="366" y="292" font-size="11.5" fill="#5b7180">iqtisodi — testga olingan</text>
+
+  <rect x="350" y="314" width="290" height="66" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="366" y="337" font-size="13.5" font-weight="700" fill="#12222d">Kontekst quruvchi</text>
+  <text x="366" y="356" font-size="11.5" fill="#5b7180">Tenant doirasidagi ma’lumotni</text>
+  <text x="366" y="372" font-size="11.5" fill="#5b7180">TAYYOR MATNGA aylantiradi</text>
+
+  <rect x="350" y="394" width="290" height="52" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="366" y="416" font-size="13.5" font-weight="700" fill="#12222d">Kvota va rate limit</text>
+  <text x="366" y="435" font-size="11.5" fill="#5b7180">AI xarajatining kunlik shifti</text>
+
+  <rect x="350" y="460" width="290" height="52" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="366" y="482" font-size="13.5" font-weight="700" fill="#12222d">Inson tasdig‘i + audit</text>
+  <text x="366" y="501" font-size="11.5" fill="#5b7180">Yozuvchi draft tasdiqdan keyin saqlanadi</text>
+
+  <!-- BAZA -->
+  <rect x="720" y="110" width="280" height="150" rx="14" fill="#f4f8fa" stroke="#c9d9e2"/>
+  <text x="740" y="138" font-size="11" font-weight="800" fill="#6a8494" letter-spacing="1">MA’LUMOT</text>
+  <rect x="740" y="154" width="240" height="86" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="756" y="177" font-size="14" font-weight="700" fill="#12222d">PostgreSQL (Neon)</text>
+  <text x="756" y="197" font-size="11.5" fill="#5b7180">Uyushma, avtomobil, hujjat,</text>
+  <text x="756" y="213" font-size="11.5" fill="#5b7180">hisob-kitob, reys, chegara,</text>
+  <text x="756" y="229" font-size="11.5" fill="#5b7180">ishonch reytingi daftari</text>
+
+  <!-- AI -->
+  <rect x="720" y="300" width="280" height="146" rx="14" fill="#f2f8f0" stroke="#b6d3ac"/>
+  <text x="740" y="328" font-size="11" font-weight="800" fill="#5c8a4e" letter-spacing="1">AI MODEL</text>
+  <rect x="740" y="344" width="240" height="82" rx="10" fill="#ffffff" stroke="#b6d3ac"/>
+  <text x="756" y="367" font-size="14" font-weight="700" fill="#12222d">Gemini / OpenAI</text>
+  <text x="756" y="387" font-size="11.5" fill="#5b7180">Chegaralangan matn/rasm/audio oladi.</text>
+  <text x="756" y="403" font-size="11.5" fill="#5b7180">SQL yozmaydi, vosita chaqirmaydi,</text>
+  <text x="756" y="419" font-size="11.5" fill="#5b7180">raqam hisoblamaydi.</text>
+
+  <!-- TASHQI -->
+  <rect x="720" y="486" width="280" height="106" rx="14" fill="#f4f8fa" stroke="#c9d9e2"/>
+  <text x="740" y="514" font-size="11" font-weight="800" fill="#6a8494" letter-spacing="1">TASHQI XIZMATLAR</text>
+  <rect x="740" y="530" width="240" height="46" rx="10" fill="#ffffff" stroke="#c9d9e2"/>
+  <text x="756" y="552" font-size="13" font-weight="700" fill="#12222d">Ochiq Mintrans reyestri</text>
+  <text x="756" y="569" font-size="11.5" fill="#5b7180">Litsenziya holatini tekshirish</text>
+
+  <!-- CHIZIQLAR: foydalanuvchi -> server -->
+  <path d="M 250 181 L 330 181" stroke="#33566b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 250 243 L 330 220" stroke="#33566b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 250 305 L 330 260" stroke="#33566b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- server <-> baza -->
+  <path d="M 640 187 L 720 187" stroke="#33566b" stroke-width="2" fill="none" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="648" y="176" font-size="10.5" fill="#5b7180">tenant filtri bilan</text>
+
+  <!-- kontekst -> model -->
+  <path d="M 640 347 L 720 371" stroke="#3f7d33" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="642" y="341" font-size="10.5" font-weight="700" fill="#3f7d33">tayyor matn</text>
+
+  <!-- model -> server -->
+  <path d="M 720 400 L 640 420" stroke="#3f7d33" stroke-width="2.5" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="642" y="437" font-size="10.5" font-weight="700" fill="#3f7d33">izoh yoki draft</text>
+
+  <!-- server -> mintrans -->
+  <path d="M 640 496 L 720 539" stroke="#33566b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- TAQIQLANGAN chiziq: model -> baza -->
+  <path d="M 900 344 L 900 244" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="7 6" fill="none"/>
+  <circle cx="900" cy="294" r="17" fill="#ffffff" stroke="#c0392b" stroke-width="2.5"/>
+  <path d="M 890 284 L 910 304 M 910 284 L 890 304" stroke="#c0392b" stroke-width="2.5"/>
+  <text x="924" y="291" font-size="11.5" font-weight="700" fill="#c0392b">Model bazaga</text>
+  <text x="924" y="306" font-size="11.5" font-weight="700" fill="#c0392b">HECH QACHON tegmaydi</text>
+
+  <!-- IZOH -->
+  <rect x="40" y="380" width="230" height="212" rx="14" fill="#fbf7ee" stroke="#e0d3b8"/>
+  <text x="60" y="408" font-size="11" font-weight="800" fill="#8a7647" letter-spacing="1">NEGA SHUNDAY</text>
+  <text x="60" y="432" font-size="11.5" fill="#5b5340">Haydovchi savoliga «boshqa</text>
+  <text x="60" y="448" font-size="11.5" fill="#5b5340">mashinalarni ham ko‘rsat»</text>
+  <text x="60" y="464" font-size="11.5" fill="#5b5340">qo‘shilishi mumkin.</text>
+  <text x="60" y="488" font-size="11.5" fill="#5b5340">Vosita chaqiruvi bo‘lsa, har</text>
+  <text x="60" y="504" font-size="11.5" fill="#5b5340">bir vositada alohida to‘siq</text>
+  <text x="60" y="520" font-size="11.5" fill="#5b5340">kerak — bittasi unutilsa</text>
+  <text x="60" y="536" font-size="11.5" fill="#5b5340">izolyatsiya buziladi.</text>
+  <text x="60" y="560" font-size="11.5" font-weight="700" fill="#3f5c30">Bu yerda begona ma’lumot</text>
+  <text x="60" y="576" font-size="11.5" font-weight="700" fill="#3f5c30">promptda umuman yo‘q.</text>
+
+  <!-- PASTKI QATOR -->
+  <rect x="40" y="616" width="960" height="54" rx="12" fill="#f4f8fa" stroke="#c9d9e2"/>
+  <text x="60" y="639" font-size="11" font-weight="800" fill="#6a8494" letter-spacing="1">CI — HAR BIR O‘ZGARISHDA MAJBURIY</text>
+  <text x="60" y="659" font-size="12" fill="#3f5563">2026-08-09: 312 test o‘tdi  ·  403 tenant so‘rovi  ·  134 endpoint  ·  sir skaneri  ·  tur tekshiruvi</text>
+</svg>

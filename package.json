@@ -1,0 +1,8 @@
+{
+  "name": "uyushmachi-ai-architecture-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node ./samples/safe-command-flow.node.mjs"
+  }
+}
