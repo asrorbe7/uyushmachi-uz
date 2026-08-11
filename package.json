@@ -1,8 +1,14 @@
 {
-  "name": "uyushmachi-ai-architecture-demo",
+  "name": "uyushmachi-review-build",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "Sanitized working core of Uyushmachi.uz for President Tech Award review",
   "scripts": {
-    "test": "node ./samples/safe-command-flow.node.mjs"
+    "start": "node ./src/server.mjs",
+    "test": "node --test ./tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

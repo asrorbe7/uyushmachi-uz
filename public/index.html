@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uyushmachi.uz - Working Review Build</title>
+  <style>
+    :root { color-scheme: light; font-family: Inter, ui-sans-serif, system-ui, sans-serif; background: #eef5ff; color: #12213c; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 85% 0%, #d9fbef 0, transparent 34%), linear-gradient(135deg, #f7fbff, #eaf2ff); }
+    main { width: min(1040px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0 72px; }
+    header { display: flex; align-items: center; gap: 14px; margin-bottom: 42px; }
+    .mark { width: 48px; height: 48px; border-radius: 15px; display: grid; place-items: center; background: #020719; border: 2px solid #08739a; color: #16d9df; font-weight: 900; box-shadow: 0 12px 30px #0d4fc426; }
+    h1 { margin: 0; font-size: clamp(34px, 5vw, 62px); line-height: .98; letter-spacing: -.045em; max-width: 780px; }
+    .lead { margin: 18px 0 30px; max-width: 740px; color: #51647f; font-size: 19px; line-height: 1.6; }
+    .eyebrow { color: #0d4fc4; font-size: 13px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; margin: 0 0 12px; }
+    .panel { background: #fff; border: 1px solid #cfdded; border-radius: 24px; padding: 26px; box-shadow: 0 18px 60px #23436b16; }
+    form { display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+    input { width: 100%; border: 1px solid #bfd0e4; border-radius: 14px; padding: 16px 18px; font: inherit; color: #12213c; outline: none; }
+    input:focus { border-color: #0d4fc4; box-shadow: 0 0 0 4px #0d4fc41a; }
+    button { border: 0; border-radius: 14px; padding: 0 22px; font: inherit; font-weight: 800; cursor: pointer; background: linear-gradient(135deg, #0d4fc4, #5d66ed); color: white; }
+    button.secondary { background: #e8f0ff; color: #0d4fc4; padding: 11px 14px; }
+    .examples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    pre { min-height: 220px; margin: 24px 0 0; padding: 20px; overflow: auto; border-radius: 16px; background: #071329; color: #dff8ef; font: 14px/1.55 ui-monospace, SFMono-Regular, Consolas, monospace; }
+    #confirm { display: none; margin-top: 14px; height: 48px; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 22px; }
+    .principle { background: #ffffffb8; border: 1px solid #cfdded; border-radius: 18px; padding: 18px; }
+    .principle strong { display: block; margin-bottom: 7px; }
+    .principle span { color: #61738c; font-size: 14px; line-height: 1.5; }
+    @media (max-width: 720px) { form { grid-template-columns: 1fr; } button { min-height: 50px; } .principles { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header><div class="mark">U</div><strong>Uyushmachi<span style="color:#079b58">.uz</span></strong></header>
+    <p class="eyebrow">President Tech Award · Working code review</p>
+    <h1>One plain-language command. A safe, auditable workflow.</h1>
+    <p class="lead">This sanitized build demonstrates how Uyushmachi.uz routes management requests, isolates association data and requires human confirmation before a financial write.</p>
+    <section class="panel">
+      <form id="form">
+        <input id="command" aria-label="Command" value="Show the lease agreement for vehicle 75S375KA">
+        <button type="submit">Prepare command</button>
+      </form>
+      <div class="examples">
+        <button class="secondary" type="button" data-command="Show the lease agreement for vehicle 75S375KA">Find a document</button>
+        <button class="secondary" type="button" data-command="Open vehicles with debt">List debtors</button>
+        <button class="secondary" type="button" data-command="Add a payment of 1 million UZS to 75S375KA">Prepare a payment</button>
+      </div>
+      <pre id="output">Ready.</pre>
+      <button id="confirm" type="button">Confirm write</button>
+    </section>
+    <section class="principles">
+      <div class="principle"><strong>Tenant-scoped</strong><span>The signed-in association is taken from the server-side actor, never from free-form text.</span></div>
+      <div class="principle"><strong>Human-confirmed</strong><span>Write requests return a preview. Nothing is persisted before explicit confirmation.</span></div>
+      <div class="principle"><strong>Auditable</strong><span>A confirmed financial transaction creates a matching append-only audit event.</span></div>
+    </section>
+  </main>
+  <script>
+    const form = document.querySelector('#form')
+    const command = document.querySelector('#command')
+    const output = document.querySelector('#output')
+    const confirmButton = document.querySelector('#confirm')
+    let proposalId = null
+
+    const show = (value) => { output.textContent = JSON.stringify(value, null, 2) }
+    document.querySelectorAll('[data-command]').forEach((button) => button.addEventListener('click', () => {
+      command.value = button.dataset.command
+      form.requestSubmit()
+    }))
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault()
+      confirmButton.style.display = 'none'
+      proposalId = null
+      const response = await fetch('/api/command', {
+        method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text: command.value }),
+      })
+      const result = await response.json()
+      show(result)
+      proposalId = result.preview?.proposalId ?? null
+      if (proposalId) confirmButton.style.display = 'inline-block'
+    })
+
+    confirmButton.addEventListener('click', async () => {
+      const response = await fetch('/api/confirm', {
+        method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ proposalId }),
+      })
+      show(await response.json())
+      confirmButton.style.display = 'none'
+      proposalId = null
+    })
+  </script>
+</body>
+</html>
