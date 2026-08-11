@@ -1,73 +1,75 @@
-# Uyushmachi.uz
+# Uyushmachi.uz - President Tech Award review build
 
-Uyushmachi.uz is a multi-tenant SaaS operating system for Uzbekistan’s transport associations. It replaces fragmented paper, Excel and messaging-based workflows with one secure platform for vehicles, services, payments, debt, documents and role-based dashboards.
+Uyushmachi.uz is a multi-tenant SaaS operating system for transport associations. It replaces fragmented paper, spreadsheet and messaging workflows with one secure platform for vehicles, services, payments, balances, documents and role-based management.
 
-Live MVP: https://www.uyushmachi.uz/
+- Live MVP: [uyushmachi.uz](https://www.uyushmachi.uz/)
+- Category: Logistics and Mobility
+- Stage: Working MVP
 
-## Problem
+## What this public repository contains
 
-Transport associations often manage vehicle records, recurring fees, service charges, payments, debt and document expiry across paper files, spreadsheets and messaging apps. This creates duplicated data, manual reconciliation, avoidable errors and limited visibility for association leaders.
+This is a sanitized, runnable excerpt of the production command workflow. It demonstrates the security-critical path used by the AI Command Center:
 
-## Solution
+1. understand a natural-language request;
+2. scope every lookup to the signed-in association;
+3. return read-only results immediately;
+4. prepare a preview for any write action;
+5. write only after explicit human confirmation;
+6. append an audit event together with the transaction.
 
-Uyushmachi.uz provides one source of truth for three operational roles:
+The sample intentionally contains no production credentials, customer records, private documents or database exports.
 
-- platform administrator — association, subscription and platform control;
-- association leader — vehicles, services, payments, debt and documents;
-- vehicle owner/driver — only their assigned vehicle account, balance and documents.
+## Run it
 
-Each association is isolated as a separate tenant. Users only access data allowed by their role.
+Requirements: Node.js 20 or newer. No third-party package is required.
 
-## Working MVP
+```bash
+npm test
+npm start
+```
+
+Open [http://localhost:4173](http://localhost:4173) and try:
+
+- `Show the lease agreement for vehicle 75S375KA`
+- `Open vehicles with debt`
+- `Add a payment of 1 million UZS to 75S375KA`
+
+The third command produces a preview. Only the **Confirm write** action creates a ledger entry and its matching audit event.
+
+## Reviewer map
+
+| File | What it proves |
+| --- | --- |
+| `src/command-engine.mjs` | Intent matching, tenant isolation and confirmation-gated writes |
+| `src/demo-data.mjs` | Sanitized two-tenant fixture with the same plate number in both tenants |
+| `src/server.mjs` | A runnable HTTP API and browser demo using only Node.js |
+| `public/index.html` | Interactive English demo interface |
+| `tests/command-engine.test.mjs` | Isolation, document routing, write confirmation and replay protection |
+
+## Production architecture
+
+The production application uses TanStack Start, React 19, PostgreSQL, Drizzle ORM, Zod, encrypted private file storage and provider-backed AI. The public review build replaces infrastructure dependencies with in-memory fixtures so reviewers can run the core safety contract in seconds.
+
+![Uyushmachi.uz safe AI architecture](docs/architecture.svg)
+
+Production roles are `super_admin`, `association_admin` and `owner`. Tenant-owned records carry an `associationId`; server-side reads and writes re-check that scope. Financial records are immutable: incorrect entries are voided instead of deleted, and critical mutations are recorded in an append-only audit log.
+
+## Working MVP modules
 
 - multi-association administration;
-- vehicle and owner records;
-- services, tariffs and recurring monthly fees;
-- payments, balances and debt visibility;
-- document storage and expiry warnings;
-- Excel import with validation;
-- association subscription management;
-- finance dashboards and audit trail;
-- encrypted file storage and backup workflow.
+- vehicle and owner accounts;
+- services, tariffs and recurring charges;
+- UZS/USD payments, balances and debt visibility;
+- private document storage and expiry warnings;
+- Excel import with validation and rollback;
+- subscription and payment-review workflows;
+- finance dashboards, risk analysis, audit and backup;
+- an AI Command Center for navigation, document retrieval and confirmation-gated actions.
 
-## Technology
+## Scope of this submission
 
-- TanStack Start and TanStack Router;
-- React 19 and Vite;
-- Tailwind CSS;
-- PostgreSQL and Drizzle ORM;
-- Zod validation;
-- Chart.js dashboards.
+The current submission is the working web MVP. Border-queue intelligence and a freight exchange are roadmap items and are not represented as completed features.
 
-## Security
+## License and review use
 
-- tenant-level association isolation;
-- role-based access control;
-- server-side authorization checks;
-- encrypted document storage;
-- immutable audit records for critical actions;
-- no production secrets or customer data committed to the repository.
-
-## Business model
-
-One subscription per association with unlimited vehicles:
-
-- 14-day free trial;
-- 199,000 UZS monthly;
-- 549,000 UZS quarterly — the plan most associations choose;
-- 1,999,000 UZS yearly.
-
-## President Tech Award incubation KPIs
-
-The working MVP will be validated through a three-month execution plan:
-
-- onboard an internal 45–50 vehicle pilot network;
-- reach 150 managed vehicles;
-- run pilots with three transport associations;
-- convert at least two associations into paying customers.
-
-These figures are incubation targets, not current traction.
-
-## Repository reviewers
-
-This repository must not contain production credentials, personal data, PINFL, phone numbers, payment records, customer documents or production database exports. Use sanitized sample data only.
+Copyright (c) 2026 Uyushmachi.uz. This repository is provided for technical evaluation of the President Tech Award application. No production secrets or customer data are included.
