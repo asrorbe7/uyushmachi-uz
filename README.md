@@ -72,4 +72,8 @@ The current submission is the working web MVP. Border-queue intelligence and a f
 
 ## License and review use
 
-Copyright (c) 2026 Uyushmachi.uz. This repository is provided for technical evaluation of the President Tech Award application. No production secrets or customer data are included.
+Copyright (c) 2026 Uyushmachi.uz. All rights reserved. This repository is
+provided only for technical evaluation of the President Tech Award application;
+it is not an open-source release. Copying, redistribution, deployment and
+derivative works are not permitted without written authorization. See
+[`LICENSE.md`](LICENSE.md). No production secrets or customer data are included.
